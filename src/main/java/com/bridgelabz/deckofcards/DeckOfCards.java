@@ -42,9 +42,9 @@ public class DeckOfCards {
         }
     }
 
-/*
-* get cards from list
-* */
+    /*
+     * get cards from list
+     * */
     public String getDeckOfCards() {
         int min = 0;
         int max = cards.size() - 1;
@@ -53,6 +53,23 @@ public class DeckOfCards {
         String returnValue = cards.get(position);
         cards.remove(position);
         return returnValue;
+    }
+
+    /*
+     * shuffle cards
+     * */
+    public void shuffleCards() {
+        for (int i = 0; i < cards.size(); i++) {
+            int min = 0;
+            int max = cards.size() - 1;
+            int position = (int) (Math.random() * (max - min + 1) + min);
+            int newPosition = (position - i);
+            if (newPosition < 0 || newPosition > 52)
+                newPosition = 0;
+            String temp = cards.get(newPosition);
+            cards.set(newPosition, cards.get(i));
+            cards.set(i, temp);
+        }
     }
 
     /*
@@ -66,10 +83,10 @@ public class DeckOfCards {
             }
         }
     }
+
     /*
      * set player sequence
      * */
-
     public void setPlayerSequence() {
         Scanner sc = new Scanner(System.in);
         int playerSize = players.size();
@@ -84,23 +101,6 @@ public class DeckOfCards {
 
             players.set(i, players.get(newPosition));
             players.set(newPosition, temp);
-        }
-    }
-    /*
-     * shuffle cards
-     * */
-
-    public void shuffleCards() {
-        for (int i = 0; i < cards.size(); i++) {
-            int min = 0;
-            int max = cards.size() - 1;
-            int position = (int) (Math.random() * (max - min + 1) + min);
-            int newPosition = (position - i);
-            if (newPosition < 0 || newPosition > 52)
-                newPosition = 0;
-            String temp = cards.get(newPosition);
-            cards.set(newPosition, cards.get(i));
-            cards.set(i, temp);
         }
     }
 
