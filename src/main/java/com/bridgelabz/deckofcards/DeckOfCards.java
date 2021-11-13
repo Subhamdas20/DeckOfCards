@@ -62,7 +62,6 @@ public class DeckOfCards {
         int max = cards.size() - 1;
         int position = (int) (Math.random() * (max - min + 1) + min);
         System.out.print("\n Size : " + cards.size() + ", position : " + position);
-
         String returnValue = cards.get(position);
         cards.remove(position);
         return returnValue;
@@ -77,7 +76,6 @@ public class DeckOfCards {
         }
     }
 
-
     public void setPlayerSequence() {
         Scanner sc = new Scanner(System.in);
         int playerSize = players.size();
@@ -86,20 +84,18 @@ public class DeckOfCards {
             System.out.print("\n Set player position  " + temp.firstname + " : ");
             int newPosition = sc.nextInt();
             if (newPosition > playerSize || newPosition < 0) {
-                System.out.print("\n Invalid position !!");
+                System.out.print("Enter valid option");
                 return;
             }
-
             players.set(i, players.get(newPosition));
             players.set(newPosition, temp);
         }
     }
-    public void displayCard(){
 
-        for(Player playerObj : players){
-
-            System.out.print("\ncards of "+ playerObj.firstname +" : ");
-            playerObj.getCardList();
+    public void displayCard() {
+        for (Player playerObj : players) {
+            System.out.print("\ncards of " + playerObj.firstname + " : ");
+            playerObj.getCard();
             System.out.print("\n ");
         }
     }
@@ -111,6 +107,5 @@ public class DeckOfCards {
         cards.setPlayerSequence();
         cards.distributeCards();
         cards.displayCard();
-
     }
 }

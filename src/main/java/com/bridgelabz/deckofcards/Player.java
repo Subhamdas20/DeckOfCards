@@ -13,8 +13,8 @@ public class Player {
     public void setCardList(String card){
         cardList.add(card);
     }
-    public void getCardList(){
-        //get all cards inside cardList
+    public void getCard(){
+        
         for(String position : cardList){
             System.out.print(position+", ");
         }
