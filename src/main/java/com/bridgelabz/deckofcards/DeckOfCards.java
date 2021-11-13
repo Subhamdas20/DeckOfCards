@@ -42,32 +42,22 @@ public class DeckOfCards {
         }
     }
 
-
-    public void shuffleCards() {
-        for (int i = 0; i < cards.size(); i++) {
-            int min = 0;
-            int max = cards.size() - 1;
-            int position = (int) (Math.random() * (max - min + 1) + min);
-            int newPosition = (position - i);
-            if (newPosition < 0 || newPosition > 52)
-                newPosition = 0;
-            String temp = cards.get(newPosition);
-            cards.set(newPosition, cards.get(i));
-            cards.set(i, temp);
-        }
-    }
-
+/*
+* get cards from list
+* */
     public String getCards() {
         int min = 0;
         int max = cards.size() - 1;
         int position = (int) (Math.random() * (max - min + 1) + min);
         System.out.print("\n Size : " + cards.size() + ", position : " + position);
-
         String returnValue = cards.get(position);
         cards.remove(position);
         return returnValue;
     }
 
+    /*
+     * distribute cards after suffle
+     * */
     public void distributeCards() {
         for (int i = 1; i <= 9; i++) {
             for (Player playerObj : players) {
@@ -76,7 +66,9 @@ public class DeckOfCards {
             }
         }
     }
-
+    /*
+     * set player sequence
+     * */
 
     public void setPlayerSequence() {
         Scanner sc = new Scanner(System.in);
@@ -94,11 +86,30 @@ public class DeckOfCards {
             players.set(newPosition, temp);
         }
     }
-    public void displayCard(){
+    /*
+     * shuffle cards
+     * */
 
-        for(Player playerObj : players){
+    public void shuffleCards() {
+        for (int i = 0; i < cards.size(); i++) {
+            int min = 0;
+            int max = cards.size() - 1;
+            int position = (int) (Math.random() * (max - min + 1) + min);
+            int newPosition = (position - i);
+            if (newPosition < 0 || newPosition > 52)
+                newPosition = 0;
+            String temp = cards.get(newPosition);
+            cards.set(newPosition, cards.get(i));
+            cards.set(i, temp);
+        }
+    }
 
-            System.out.print("\ncards of "+ playerObj.firstname +" : ");
+    /*
+     * print cards
+     * */
+    public void displayCard() {
+        for (Player playerObj : players) {
+            System.out.print("\ncards of " + playerObj.firstname + " : ");
             playerObj.getCardList();
             System.out.print("\n ");
         }
@@ -111,6 +122,5 @@ public class DeckOfCards {
         cards.setPlayerSequence();
         cards.distributeCards();
         cards.displayCard();
-
     }
 }
