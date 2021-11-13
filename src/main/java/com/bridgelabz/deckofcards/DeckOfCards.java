@@ -108,9 +108,9 @@ public class DeckOfCards {
      * print cards
      * */
     public void displayCard() {
-        for (Player playerObj : players) {
-            System.out.print("\ncards of " + playerObj.firstname + " : ");
-            playerObj.getCardList();
+        for (Player player : players) {
+            System.out.print("\ncards of " + player.firstname + " : ");
+            player.getCard();
             System.out.print("\n ");
         }
     }

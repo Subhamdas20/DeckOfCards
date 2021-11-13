@@ -13,7 +13,7 @@ public class Player {
     public void setCardList(String card){
         cardList.add(card);
     }
-    public void getCardList(){
+    public void getCard(){
         for(String position : cardList){
             System.out.print(position+", ");
         }
