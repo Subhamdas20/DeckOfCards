@@ -1,7 +1,10 @@
 package com.bridgelabz.deckofcards;
 
-public class DeckOfCards {
+import java.util.ArrayList;
+import java.util.Scanner;
 
+public class DeckOfCards {
+    ArrayList<Player> players = new ArrayList<>();
     String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
     String[] deck = new String[52];
@@ -20,10 +23,28 @@ public class DeckOfCards {
 
     }
 
+    /*
+     * add multiple players
+     * */
+    public void addPlayers() {
+        int numberOfPlayers;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of players");
+        numberOfPlayers = sc.nextInt();
+        if (numberOfPlayers < 2 || numberOfPlayers > 4) {
+            System.out.println("Enter the value between 2 and 4");
+            numberOfPlayers = sc.nextInt();
+        }
+        for (int i = 1; i <= numberOfPlayers; i++) {
+            System.out.println("Enter the players name");
+            Player player = new Player(sc.next());
+
+        }
+    }
 
     public static void main(String[] args) {
         DeckOfCards cards = new DeckOfCards();
         cards.uniqueDeckOfCard();
+        cards.addPlayers();
     }
-
 }
