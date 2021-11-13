@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeckOfCards {
-    ArrayList<Player> players = new ArrayList<>();
+    static ArrayList<Player> players = new ArrayList<>();
     String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
     String[] deck = new String[52];
@@ -38,6 +38,7 @@ public class DeckOfCards {
         for (int i = 1; i <= numberOfPlayers; i++) {
             System.out.println("Enter the players name");
             Player player = new Player(sc.next());
+            players.add(player);
 
         }
     }
