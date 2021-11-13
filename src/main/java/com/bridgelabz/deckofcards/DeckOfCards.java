@@ -45,7 +45,7 @@ public class DeckOfCards {
 /*
 * get cards from list
 * */
-    public String getCards() {
+    public String getDeckOfCards() {
         int min = 0;
         int max = cards.size() - 1;
         int position = (int) (Math.random() * (max - min + 1) + min);
@@ -56,12 +56,12 @@ public class DeckOfCards {
     }
 
     /*
-     * distribute cards after suffle
+     * distribute cards after shuffle
      * */
     public void distributeCards() {
         for (int i = 1; i <= 9; i++) {
             for (Player playerObj : players) {
-                playerObj.setCardList(getCards());
+                playerObj.setCardList(getDeckOfCards());
                 shuffleCards();
             }
         }
@@ -78,7 +78,7 @@ public class DeckOfCards {
             System.out.print("\n Set player position  " + temp.firstname + " : ");
             int newPosition = sc.nextInt();
             if (newPosition > playerSize || newPosition < 0) {
-                System.out.print("\n Invalid position !!");
+                System.out.print("\n Enter valid position");
                 return;
             }
 
