@@ -8,7 +8,7 @@ public class DeckOfCards {
     ArrayList<String> deckOfCards = new ArrayList<>();
     String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-    String[] deck = new String[52];
+//    String[] deck = new String[52];
 
     /*
      * uniqueDeckOfCard method is used to initialize the deck with cards
@@ -20,7 +20,6 @@ public class DeckOfCards {
                 deckOfCards.add(suits[row] + ranks[column]);
             }
         }
-
     }
 
     /*
@@ -49,10 +48,21 @@ public class DeckOfCards {
         int min = 0;
         int max = deckOfCards.size() - 1;
         int position = (int) (Math.random() * (max - min + 1) + min);
-//        System.out.print("\n Size : " + deckOfCards.size() + ", position : " + position);
         String returnValue = deckOfCards.get(position);
         deckOfCards.remove(position);
         return returnValue;
+    }
+
+    /*
+     * distribute cards after shuffle
+     * */
+    public void distributeCards() {
+        for (int i = 1; i <= 9; i++) {
+            for (Player playerObj : players) {
+                playerObj.setCardList(getDeckOfCards());
+                shuffleCards();
+            }
+        }
     }
 
     /*
@@ -69,18 +79,6 @@ public class DeckOfCards {
             String temp = deckOfCards.get(newPosition);
             deckOfCards.set(newPosition, deckOfCards.get(i));
             deckOfCards.set(i, temp);
-        }
-    }
-
-    /*
-     * distribute cards after shuffle
-     * */
-    public void distributeCards() {
-        for (int i = 1; i <= 9; i++) {
-            for (Player playerObj : players) {
-                playerObj.setCardList(getDeckOfCards());
-                shuffleCards();
-            }
         }
     }
 
