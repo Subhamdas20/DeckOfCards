@@ -8,7 +8,6 @@ public class DeckOfCards {
     ArrayList<String> deckOfCards = new ArrayList<>();
     String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
     String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-//    String[] deck = new String[52];
 
     /*
      * uniqueDeckOfCard method is used to initialize the deck with cards
@@ -108,8 +107,9 @@ public class DeckOfCards {
         for (Player player : players) {
             System.out.print("\ncards of " + player.firstname + " : ");
             player.getCard();
-            System.out.print("\n ");
+            player.numberOfSuits();
         }
+
     }
 
     public static void main(String[] args) {
