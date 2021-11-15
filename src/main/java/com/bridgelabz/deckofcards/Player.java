@@ -22,7 +22,9 @@ public class Player {
             System.out.print(position + ", ");
         }
     }
-
+/*
+* get number of each type of suit each player received
+* */
     public void numberOfSuits() {
         String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
         for (int i = 0; i < suit.length; i++) {

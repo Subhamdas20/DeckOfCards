@@ -92,7 +92,7 @@ public class DeckOfCards {
             System.out.print("Set player position " + temp.firstname + " : ");
             int newPosition = sc.nextInt();
             if (newPosition > playerSize || newPosition < 0) {
-                System.out.print("\n Enter valid position");
+                System.out.print("Enter valid position");
                 return;
             }
             players.set(i, players.get(newPosition));
@@ -105,7 +105,7 @@ public class DeckOfCards {
      * */
     public void displayCard() {
         for (Player player : players) {
-            System.out.print("\ncards of " + player.firstname + " : ");
+            System.out.print("cards of " + player.firstname + " : ");
             player.getCard();
             player.numberOfSuits();
         }
